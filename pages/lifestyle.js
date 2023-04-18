@@ -237,9 +237,7 @@ export default function Lifestyle({ products }) {
       {/* </div> */}
       <Link href='#'>
       <Stack spacing={2} sx={{width:'30%', margin:'auto' }}>
-
         <Pagination count={3} sx={{color:'orange'}}/>
-      
       </Stack>
       </Link> 
       <Grid
