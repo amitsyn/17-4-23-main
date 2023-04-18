@@ -47,7 +47,6 @@ export default function Lifestyle({ products }) {
     },
   };
   return (
-    
     <>
     {/* <div> */}
     <Typography variant ='h1' sx={{textalign:'center'}}>LifeStyle</Typography>
@@ -66,7 +65,7 @@ export default function Lifestyle({ products }) {
               title="green iguana"
               on
             ><Button sx={{marginRight:'250px'}}>Lifestyle</Button></CardMedia></Link>
-            <div style={{display:'flex' ,margin:'20px 20px'}}>  
+            <div style = {{display:'flex' ,margin:'20px 20px'}}>  
             <Avatar
               alt="Remy Sharp"
               src="https://themeger.shop/html/katen/html/images/other/avatar-lg.png"
@@ -88,7 +87,9 @@ export default function Lifestyle({ products }) {
               <Button size="small"><MoreHorizIcon/></Button>
             </CardActions>
           </Card>
-          </Item> </Grid>        )} </Grid>
+          </Item> </Grid> 
+ )} 
+  </Grid>
 
          <Grid xs={4} sx={{margin:'50px', padding:'20px'}}>
           <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
@@ -151,7 +152,6 @@ export default function Lifestyle({ products }) {
                   </Typography>
                 </div>
               </div>
-
             </CardContent>
           </Card>
           <Card sx={{ height:500 , marginLeft: '20px', marginTop: '20px' }}>
@@ -173,9 +173,8 @@ export default function Lifestyle({ products }) {
                 <Typography variant="h6" sx={{ color: 'black', margin: '20px 20px' }}>
                   <ChevronRightIcon></ChevronRightIcon>Culture</Typography>
               </Link>
-
-            </CardContent></Card>
-            <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
+            </CardContent>
+            </Card>            <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
             <CardContent sx={{ maxWidth: 450, textAlign: 'center', height: 350, marginLeft: '30px' }}>
               <Typography variant="h3" color="black" sx={{ marginLeft: '20px ' }} >
               Newsletter
@@ -256,7 +255,7 @@ export default function Lifestyle({ products }) {
             <ImageList/>
             </Grid>   
       </Grid>
-      <Sidebar/>
+      {/* <Sidebar/> */}
      
       
       </>

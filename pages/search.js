@@ -1,8 +1,11 @@
-import Item from '../../com'
+import * as React from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 const Search = ()=>{
-  return <>
-    <h1>Back to Home</h1>
-    <Item/>
-  </> 
+  const matches = useMediaQuery('(min-width:600px)');
+
+  return <span>{`(min-width:600px) matches: ${matches}`}</span>;
+   
+ 
 }
 export default Search

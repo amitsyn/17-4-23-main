@@ -256,7 +256,7 @@ export default function Inspiration({ products }) {
             <ImageList/>
             </Grid>   
       </Grid>
-      <Sidebar/>
+      {/* <Sidebar/> */}
      
       
       </>

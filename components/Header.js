@@ -18,8 +18,10 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Link from 'next/link'
 import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
+import Buttons from './Buttons';
 
 const Header = () => {
+   
     return (
         <div>
             <div >
@@ -54,7 +56,7 @@ const Header = () => {
                 </AppBar>
                 {/* </Box> */}
             </div>
-            <ButtonGroup variant="text" sx={{ display: 'flex', marginLeft: '450px',marginTop:'20px', marginBottom:'20px' }}>
+            {/* <ButtonGroup variant="text" sx={{ display: 'flex', marginLeft: '450px',marginTop:'20px', marginBottom:'20px' }}>
                 <Button variant='contained' sx={{ color: 'orange', backgroud:'orange' }}>
                     <Link href='/#'  style={{textDecoration: 'none'}}>Home</Link></Button>
                 <Button sx={{ color: '#9faabb' }}>
@@ -69,7 +71,8 @@ const Header = () => {
                 <Button sx={{ color: 'red' }}> 
                     <Link href='/inspiration'  style={{textDecoration: 'none'}}  sx={{ color: 'red' }}>Contact</Link>
                 </Button>
-            </ButtonGroup>
+            </ButtonGroup> */}
+            <Buttons/>
             <Box
                 sx={{
                     width: '100%',
