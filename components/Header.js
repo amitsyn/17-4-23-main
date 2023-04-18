@@ -45,7 +45,8 @@ const Header = () => {
                                 <Link href='/search'>
                                 <SearchIcon sx={{ m: '20px' }} />
                                 </Link>
-                                <DensityMediumIcon sx={{ m: '20px' }}/>
+                                {/* <DensityMediumIcon sx={{ m: '20px' }}/> */}
+                                <Sidebar/>
                             </Stack>
                         </Grid>
 
@@ -53,20 +54,20 @@ const Header = () => {
                 </AppBar>
                 {/* </Box> */}
             </div>
-            <ButtonGroup variant="text" sx={{ display: 'flex', marginLeft: '450px' }}>
+            <ButtonGroup variant="text" sx={{ display: 'flex', marginLeft: '450px',marginTop:'20px', marginBottom:'20px' }}>
                 <Button variant='contained' sx={{ color: 'orange', backgroud:'orange' }}>
-                    <Link href='/'>Home</Link></Button>
+                    <Link href='/#'  style={{textDecoration: 'none'}}>Home</Link></Button>
                 <Button sx={{ color: '#9faabb' }}>
-                   <Link href='/'>LifeStyle</Link>
+                   <Link href='/lifestyle'  style={{textDecoration: 'none'}}>LifeStyle</Link>
                 </Button>
                 <Button sx={{ color: '#9faabb' }}>
-                    <Link href='/'>Inspiration</Link>
+                    <Link href='/inspiration'  style={{textDecoration: 'none'}}>Inspiration</Link>
                 </Button>
                 <Button sx={{ color: '#9faabb' }}> 
-                    <Link href='/'>Pages</Link>
+                    <Link href='/lifestyle'  style={{textDecoration: 'none'}}>Career</Link>
                 </Button>
                 <Button sx={{ color: 'red' }}> 
-                    <Link href='/'  sx={{ color: 'red' }}>Contact</Link>
+                    <Link href='/inspiration'  style={{textDecoration: 'none'}}  sx={{ color: 'red' }}>Contact</Link>
                 </Button>
             </ButtonGroup>
             <Box

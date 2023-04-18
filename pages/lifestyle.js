@@ -1,5 +1,4 @@
-
-import { styled } from '@mui/material/styles';
+import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,11 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 import ShareIcon from '@mui/icons-material/Share';
 import Paper from '@mui/material/Paper';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Link from 'next/link';
-import Footer from '@/components/Footer';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -21,15 +19,26 @@ import MpIcon from '@mui/icons-material/Mp';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Badge from '@mui/material/Badge';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import Chips from '../../components/Chips';
-import Icons from '../../components/Icons'
+import Link from 'next/link';
+import TextField from '@mui/material/TextField';
 
+import ImageList from '../components/ImageList1'
+import Sidebar from '../components/Sidebar'
+import Icons from '../components/Icons'
+import Chips from '../components/Chips'
+import Chip from '@mui/material/Chip';
+import Footer from '../components/Footer'
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
-
-const LifestyleList = ({ post }) => {
+export default function Lifestyle({ products }) {
   const boxSX = {
     "&:hover": {
       border: "1px solid red",
@@ -38,39 +47,52 @@ const LifestyleList = ({ post }) => {
     },
   };
   return (
+    
     <>
-      <Typography variant='h3' sx={{ margin: '20px 20px ' }}>{post.title.rendered}</Typography>
-      <div style={{ display: 'flex', marginLeft: '20px 20px' }}>
-        <Avatar
-          alt="Remy Sharp"
-          src="https://themeger.shop/html/katen/html/images/other/avatar-lg.png"
-          sx={{ width: 30, height: 30, textAlign: 'center',marginLeft: '25px' }} />
-        <Typography variant='h6' sx={{ marginLeft: '25px' }}>Katen Doe</Typography>
-        <Typography sx={{ marginLeft: '40px' }}> 20 March 2023</Typography>
-      </div>
-
-      <Grid display='flex' padding='20px 20px' margin='20px 20px'>
-        <Grid xs={8}>
-          <Card sx={{ maxWidth: 1000 }}>
+    {/* <div> */}
+    <Typography variant ='h1' sx={{textalign:'center'}}>LifeStyle</Typography>
+    <Grid sx={{display:'flex' }}>
+    <Grid xs={12} container spacing={1} sx={{display:'flex', margin:"10px"}} >
+      {
+        products.map(item =>
+          
+          <Grid  xs={4}  key={item.id} sx={{display:'flex',margin:'50px',padding:'20px'}}>
+          <Item>
+          <Card sx={{ maxWidth: 1200  }}>
+            <Link href={`posts/${item.id}`}>
             <CardMedia
-              sx={{ height: 800 }}
+              sx={{ height: 300 }}
               image="	https://themeger.shop/html/katen/html/images/posts/post-md-1.jpg"
-              title={post.title.rendered}
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {post.content.rendered}
+              title="green iguana"
+              on
+            ><Button sx={{marginRight:'250px'}}>Lifestyle</Button></CardMedia></Link>
+            <div style={{display:'flex' ,margin:'20px 20px'}}>  
+            <Avatar
+              alt="Remy Sharp"
+              src="https://themeger.shop/html/katen/html/images/other/avatar-lg.png"
+              sx={{ width: 30, height: 30, textAlign: 'center' }}/>
+              <span >  Katen Doe</span>
+              <h6 sx={{m:3 , p:3}}>20 March 2023</h6>
+            </div>
+            
+            <CardContent sx={{textAlign:'center'}}>
+              <Typography gutterBottom variant="h5" component="div">
+                {item.title.rendered}
               </Typography>
-              <Typography variant='h4' sx={{ margin: '20px 20px' }}>{post.slug}</Typography>
-              <Typography variant="body2" color="text.secondary">
-                {post.content.rendered}
+              <Typography variant="body2" color="text.secondary" limit={10}>
+              I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence.
               </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small"><ShareIcon/></Button>
+              <Button size="small"><MoreHorizIcon/></Button>
+            </CardActions>
           </Card>
-        </Grid>
-        <Grid xs={4} >
-          <Card sx={{ marginRight: '20px', marginTop: '20px'}}>
-            <CardContent sx={{ maxWidth: 400, textAlign: 'center', height: 300, marginLeft: '30px' }}>
+          </Item> </Grid>        )} </Grid>
+
+         <Grid xs={4} sx={{margin:'50px', padding:'20px'}}>
+          <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
+            <CardContent sx={{ maxWidth: 450, textAlign: 'center', height: 350, marginLeft: '30px' }}>
               <Typography variant="h2" color="black" sx={{ marginLeft: '20px ' }} >
                 Katen
               </Typography>
@@ -87,8 +109,8 @@ const LifestyleList = ({ post }) => {
                 <Icons/>
               </CardMedia>
             </CardContent></Card>
-          <Card sx={{ marginLeft: '20px', marginTop: '10px' }}>
-            <CardContent sx={{ maxWidth: 400, textAlign: 'center', height: 400, padding: '10px', margin: '30px' }}>
+          <Card sx={{ marginLeft: '20px', marginTop: '20px' }}>
+            <CardContent sx={{ maxWidth: 400, textAlign: 'center', height: 400, padding: '30px', margin: '30px' }}>
               <Typography variant="h4" color="black" sx={{ margin: '10px 10px' }} >
                 Popular Posts
               </Typography>
@@ -101,7 +123,7 @@ const LifestyleList = ({ post }) => {
                       sx={{ width: 30, height: 30, textAlign: 'center' }} />
                   </Badge>
                   <Typography variant="h6" color="black">
-                    {post.title.rendered} <br />
+                  10 Ways To Immediately Start Selling Furniture<br />
                     <Typography variant='body1' sx={{ color: '#8F9BAD' }}>23 March 2023</Typography>
                   </Typography>
                 </div>
@@ -113,10 +135,9 @@ const LifestyleList = ({ post }) => {
                       sx={{ width: 30, height: 30, textAlign: 'center' }} />
                   </Badge>
                   <Typography variant="h6" color="black">
-                    {post.title.rendered} <br />
+                     3 Easy Ways To Make Your iPhone Faster <br />
                     <Typography variant='body1' sx={{ color: '#8F9BAD' }}>23 March 2023</Typography>
-                  </Typography>                    
-                  </div>
+                  </Typography>                    </div>
                 <div style={{ margin: '20px 20px', display: 'flex' }}>
                   <Badge badgeContent={3} color="primary">
                     <Avatar
@@ -125,7 +146,7 @@ const LifestyleList = ({ post }) => {
                       sx={{ width: 30, height: 30, textAlign: 'center' }} />
                   </Badge>
                   <Typography variant="h6" color="black">
-                    {post.title.rendered} <br />
+                     An Incredibly Easy Method That Works For All<br />
                     <Typography variant='body1' sx={{ color: '#8F9BAD' }}>23 March 2023</Typography>
                   </Typography>
                 </div>
@@ -133,7 +154,7 @@ const LifestyleList = ({ post }) => {
 
             </CardContent>
           </Card>
-          <Card sx={{ height:400 , marginLeft: '20px', marginTop: '20px' }}>
+          <Card sx={{ height:500 , marginLeft: '20px', marginTop: '20px' }}>
             <CardContent sx={{ maxWidth: 450, height: 350, marginLeft: '30px' }}>
               <Typography variant="h4" color="black" sx={{ marginLeft: '20px ' }} >
                 Explore Topics
@@ -157,7 +178,7 @@ const LifestyleList = ({ post }) => {
             <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
             <CardContent sx={{ maxWidth: 450, textAlign: 'center', height: 350, marginLeft: '30px' }}>
               <Typography variant="h3" color="black" sx={{ marginLeft: '20px ' }} >
-                 Newsletter
+              Newsletter
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{marginTop:'20px'}}>
               Join 70,000 subscribers!
@@ -186,7 +207,7 @@ const LifestyleList = ({ post }) => {
             />
                 <div style={{ margin: '20px 20px', display: 'flex' }}>
                     <Typography variant="h6" color="black">
-                    {post.title.rendered} <br />
+                    An Incredibly Easy Method That Works For All <br />
                     <Typography variant='body1' sx={{ color: '#8F9BAD' }}>23 March 2023</Typography>
                   </Typography>                    
                   </div>
@@ -203,53 +224,60 @@ const LifestyleList = ({ post }) => {
                 <Chip label="#Video" sx={boxSX}/>
                 <Chip label="#Featured" sx={boxSX}/>
                 <Chip label="#Gallery" sx={boxSX}/>
-                <Chip label="#Celebrities" sx={boxSX}/>
-              </Link> */}
-              <Chips/>
+                <Chip label="#Celebrities" sx={boxSX}/> */}
+                <Chips/>
+                
+              {/* </Link> */}
+
               </div>
               
             </CardContent></Card>
 
         </Grid>
       </Grid>
-    </>
+      {/* </div> */}
+      <Link href='#'>
+      <Stack spacing={2} sx={{width:'30%', margin:'auto' }}>
+
+        <Pagination count={3} sx={{color:'orange'}}/>
+      
+      </Stack>
+      </Link> 
+      <Grid
+            container
+          // spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '40vh' }}
+          >
+
+            <Grid item xs={3}>
+            <ImageList/>
+            </Grid>   
+      </Grid>
+      <Sidebar/>
+     
+      
+      </>
   )
 }
-export default LifestyleList
-export async function getStaticPaths() {
+export async function getServerSideProps() {
   const res = await fetch('https://themeger.shop/wordpress/katen/catalog/wp-json/wp/v2/posts')
   const data = await res.json()
 
-  const paths = data.map(post => {
-    return {
-      params: {
-        lifestyleList: `${post.id}`
-      }
-    }
-  })
-  return {
-    paths,
-    fallback: false
-  }
-
-}
-
-export async function getStaticProps(context) {
-  const { params } = context
-  const res = await fetch(`https://themeger.shop/wordpress/katen/catalog/wp-json/wp/v2/posts/${params.lifestyleList}`)
-  const data = await res.json()
   return {
     props: {
-      post: data
+      products: data
     }
   }
 }
 
-LifestyleList.getLayout = function pageLayout(page) {
-  return (
-    <>
-      {page}
-      <Footer />
-    </>
-  )
-}
+Lifestyle.getLayout = function pageLayout(page) {
+    return (
+      <>
+        {page}
+        <Footer />
+      </>
+    )
+  }

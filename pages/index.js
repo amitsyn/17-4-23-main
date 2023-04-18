@@ -23,12 +23,12 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import TextField from '@mui/material/TextField';
-import Chip from '@mui/material/Chip';
+
 import ImageList from '../components/ImageList1'
 import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
 import Chips from '../components/Chips'
-
+import Chip from '@mui/material/Chip';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -48,13 +48,13 @@ export default function ProductList({ products }) {
   return (
     
     <>
-    <div>
+    {/* <div> */}
     <Grid sx={{display:'flex' }}>
-    <Grid xs={8} container spacing={1} sx={{display:'flex', margin:"10px"}} >
+    <Grid xs={12} container spacing={1} sx={{display:'flex', margin:"10px"}} >
       {
         products.map(item =>
           
-          <Grid  xs={4}  key={item.id} sx={{display:'flex'}}>
+          <Grid  xs={4}  key={item.id} sx={{display:'flex',margin:'50px'}}>
           <Item>
           <Card sx={{ maxWidth: 1000  }}>
             <Link href={`posts/${item.id}`}>
@@ -88,8 +88,8 @@ export default function ProductList({ products }) {
           </Card>
           </Item> </Grid>        )} </Grid>
 
-         <Grid xs={4} >
-          <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
+         <Grid xs={4} sx={{ marginRight: '50px', marginTop: '50px'}}>
+          <Card >
             <CardContent sx={{ maxWidth: 450, textAlign: 'center', height: 350, marginLeft: '30px' }}>
               <Typography variant="h2" color="black" sx={{ marginLeft: '20px ' }} >
                 Katen
@@ -107,9 +107,9 @@ export default function ProductList({ products }) {
                 <Icons/>
               </CardMedia>
             </CardContent></Card>
-          <Card sx={{ marginLeft: '20px', marginTop: '20px' }}>
-            <CardContent sx={{ maxWidth: 400, textAlign: 'center', height: 400, padding: '30px', margin: '30px' }}>
-              <Typography variant="h4" color="black" sx={{ margin: '10px 10px' }} >
+          <Card sx={{ marginLeft: '10px', marginTop: '10px' }}>
+            <CardContent sx={{maxWidth: 400, textAlign: 'center', height: 400, padding: '10px', margin: '10px' }}>
+              <Typography variant="h4" color="black" >
                 Popular Posts
               </Typography>
               <div >
@@ -222,11 +222,10 @@ export default function ProductList({ products }) {
                 <Chip label="#Video" sx={boxSX}/>
                 <Chip label="#Featured" sx={boxSX}/>
                 <Chip label="#Gallery" sx={boxSX}/>
-                <Chip label="#Celebrities" sx={boxSX}/> 
+                <Chip label="#Celebrities" sx={boxSX}/> */}
+                <Chips/>
                 
-                
-               </Link> */}
-               <Chips/>
+              {/* </Link> */}
 
               </div>
               
@@ -234,9 +233,10 @@ export default function ProductList({ products }) {
 
         </Grid>
       </Grid>
-      </div>
+      {/* </div> */}
       <Link href='#'>
       <Stack spacing={2} sx={{width:'30%', margin:'auto' }}>
+
         <Pagination count={3} sx={{color:'orange'}}/>
       
       </Stack>
