@@ -18,10 +18,10 @@ const Buttons = () => {
                     <Link href='/inspiration'  style={{textDecoration: 'none'}}>Inspiration</Link>
                 </Button>
                 <Button sx={{ color: '#9faabb' }}> 
-                    <Link href='/lifestyle'  style={{textDecoration: 'none'}}>Career</Link>
+                    <Link href='/career'  style={{textDecoration: 'none'}}>Career</Link>
                 </Button>
                 <Button sx={{ color: 'red' }}> 
-                    <Link href='/inspiration'  style={{textDecoration: 'none'}}  sx={{ color: 'red' }}>Contact</Link>
+                    <Link href='/about'  style={{textDecoration: 'none'}}  sx={{ color: 'red' }}>About</Link>
                 </Button>
             </ButtonGroup>
             <span>{`(min-width:600px) matches: ${matches}`}</span>

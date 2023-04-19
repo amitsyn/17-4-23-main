@@ -23,13 +23,14 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import TextField from '@mui/material/TextField';
-
 import ImageList from '../components/ImageList1'
 import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
 import Chips from '../components/Chips'
 import Chip from '@mui/material/Chip';
 import Footer from '../components/Footer'
+import Caurosal from '../components/Caurosal'
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -87,7 +88,8 @@ export default function Lifestyle({ products }) {
               <Button size="small"><MoreHorizIcon/></Button>
             </CardActions>
           </Card>
-          </Item> </Grid> 
+          </Item> 
+          </Grid> 
  )} 
   </Grid>
 
@@ -174,7 +176,8 @@ export default function Lifestyle({ products }) {
                   <ChevronRightIcon></ChevronRightIcon>Culture</Typography>
               </Link>
             </CardContent>
-            </Card>            <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
+            </Card>            
+            <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
             <CardContent sx={{ maxWidth: 450, textAlign: 'center', height: 350, marginLeft: '30px' }}>
               <Typography variant="h3" color="black" sx={{ marginLeft: '20px ' }} >
               Newsletter
@@ -185,7 +188,7 @@ export default function Lifestyle({ products }) {
               
           <TextField  label="Email address"  sx={{marginTop:'30px',border: 'solid 0px ',borderColor:'red'}} />
           <Stack spacing={2}  sx={{marginTop:'30px'}}>
-              <Button >Signup</Button>
+              <Button>Signup</Button>
              </Stack>
              <Typography>By signing up, you agree to our 
               <Link href='#'>
@@ -206,7 +209,7 @@ export default function Lifestyle({ products }) {
             />
                 <div style={{ margin: '20px 20px', display: 'flex' }}>
                     <Typography variant="h6" color="black">
-                    An Incredibly Easy Method That Works For All <br />
+                      An Incredibly Easy Method That Works For All <br />
                     <Typography variant='body1' sx={{ color: '#8F9BAD' }}>23 March 2023</Typography>
                   </Typography>                    
                   </div>
@@ -254,6 +257,8 @@ export default function Lifestyle({ products }) {
             </Grid>   
       </Grid>
       {/* <Sidebar/> */}
+      <Caurosal/>
+      
      
       
       </>

@@ -19,9 +19,11 @@ import Link from 'next/link'
 import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
 import Buttons from './Buttons';
+import Alert from '@mui/material/Alert';
+
 
 const Header = () => {
-   
+
     return (
         <div>
             <div >
@@ -29,7 +31,7 @@ const Header = () => {
                 <AppBar position="static" sx={{ color: 'black', backgroundColor: 'white' }}>
                     <Grid container spacing={3} display='flex'>
                         <Grid sm={4} sx={{ marginTop: '50px', color: 'black' }} >
-                            <Icons/>
+                            <Icons />
                         </Grid>
                         <Grid sm={4} sx={{ marginTop: '50px' }} >
                             <Stack >
@@ -44,11 +46,15 @@ const Header = () => {
                         </Grid>
                         <Grid sm={4} sx={{ marginTop: '50px' }}  >
                             <Stack display='-webkit-box' sx={{ marginRight: '20px' }}>
-                                <Link href='/search'>
-                                <SearchIcon sx={{ m: '20px' }} />
-                                </Link>
+                                {/* <Link href='/search'> */}
+                                    <SearchIcon sx={{ m: '20px' }} onClick={() => { alert('Back to Home') }}>
+                                       
+                                           
+                                    
+                                    </SearchIcon>
+                                {/* </Link> */}
                                 {/* <DensityMediumIcon sx={{ m: '20px' }}/> */}
-                                <Sidebar/>
+                                <Sidebar />
                             </Stack>
                         </Grid>
 
@@ -72,7 +78,7 @@ const Header = () => {
                     <Link href='/inspiration'  style={{textDecoration: 'none'}}  sx={{ color: 'red' }}>Contact</Link>
                 </Button>
             </ButtonGroup> */}
-            <Buttons/>
+            <Buttons />
             <Box
                 sx={{
                     width: '100%',

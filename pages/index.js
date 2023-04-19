@@ -29,6 +29,8 @@ import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
 import Chips from '../components/Chips'
 import Chip from '@mui/material/Chip';
+
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -229,8 +231,8 @@ export default function ProductList({ products }) {
 
               </div>
               
-            </CardContent></Card>
-
+            </CardContent>
+            </Card>
         </Grid>
       </Grid>
       {/* </div> */}

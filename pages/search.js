@@ -1,11 +1,12 @@
 import * as React from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 const Search = ()=>{
-  const matches = useMediaQuery('(min-width:600px)');
-
-  return <span>{`(min-width:600px) matches: ${matches}`}</span>;
-   
  
+  return (
+    <Stack sx={{ width: '100%' }} spacing={2}>
+      <Alert severity="error">Back to Home</Alert>
+    </Stack>)
 }
 export default Search
