@@ -23,13 +23,17 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import TextField from '@mui/material/TextField';
-
 import ImageList from '../components/ImageList1'
 import Sidebar from '../components/Sidebar'
 import Icons from '../components/Icons'
 import Chips from '../components/Chips'
 import Chip from '@mui/material/Chip';
-
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import { useSelector, useDispatch } from "react-redux";
+import { iconAction } from "../store/icon-slice";
+import sun24 from "../icons/sun-24.png";
+import moon30 from "../icons/moon-30.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -47,8 +51,18 @@ export default function ProductList({ products }) {
       backgroundColor: 'lightblue'
     },
   };
+
+  const dispatcher = useDispatch()
+
+  let icon = useSelector(state => state.icon)
+  console.log(icon)
+
+  function changeIcon() {
+
+    icon.icon === "moon" ? dispatcher(iconAction.iconSun()) : dispatcher(iconAction.iconMoon())
+
+  }
   return (
-    
     <>
     {/* <div> */}
     <Grid sx={{display:'flex' }}>
@@ -216,7 +230,7 @@ export default function ProductList({ products }) {
             <Card sx={{ marginLeft: '20px', marginTop: '20px'}}>
             <CardContent sx={{ maxWidth: 300, textAlign: 'center', height: 200, marginLeft: '30px' }}>
               <Typography variant="h4" color="black" sx={{ marginLeft: '20px ' }} >
-              Tag Clouds
+                  Tag Clouds
               </Typography>
               <div sx={{marginTop:'20px'}}>
                 {/* <Link href="#">
@@ -257,15 +271,30 @@ export default function ProductList({ products }) {
             </Grid>   
       </Grid>
       {/* <Sidebar/> */}
-     
-      
-      </>
+      <div style={{ backgroundColor: icon.icon === "moon" ? "white" : "#000000b5" }} className={styles.container}>
+      <main className={styles.main}>
+        <div className='NavBar' > 
+         
+        </div>
+
+        <div onClick={changeIcon} className='iconBox'>
+          <Image
+            width={30}
+            height={30}
+            objectFit="cover"
+            src={icon.icon === 'moon' ? moon30 : sun24}
+            alt="image"
+          />
+        </div>
+      </main>
+      </div> 
+   </>
   )
 }
+
 export async function getServerSideProps() {
   const res = await fetch('https://themeger.shop/wordpress/katen/catalog/wp-json/wp/v2/posts')
   const data = await res.json()
-
   return {
     props: {
       products: data

@@ -24,10 +24,10 @@ export default function Home() {
     <div style={{ backgroundColor: icon.icon === "moon" ? "white" : "#000000b5" }} className={styles.container}>
 
       <main className={styles.main}>
-        <div className='NavBar'> 
-          <Link href="/career" className='item'>Career
+        <div className='NavBar' > 
+          <Link href="/career" sx={{textDecoration:'none' }} className='item'>Career
           </Link>
-          <Link href="/about" className='item'>About
+          <Link href="/about" sx={{textDecoration:'none' }} className='item'>About
           </Link>
         </div>
 
@@ -40,16 +40,7 @@ export default function Home() {
             alt="image"
           />
         </div>
-
-
-
-       
-
-        
- 
       </main>
-
-    
     </div>
   )
 }

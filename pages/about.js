@@ -13,6 +13,7 @@ export default function Home() {
     const dispatcher = useDispatch()
 
     let icon = useSelector(state => state.icon)
+    console.log(icon.icon)
 
     function changeIcon() {
 

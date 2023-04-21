@@ -14,6 +14,5 @@ reducers:{
     },
 }
 })
-
 export default iconslice
 export const iconAction = iconslice.actions
